@@ -17,9 +17,72 @@ Cada peça do xadrez foi implementada com diferentes estruturas de controle:
 
 ## 🔍 Estrutura do Código
 
-```c
 #include <stdio.h>
-🔄 Funções:
+
+void torre(int numero) {        //RECURSIVIDADE: TORRE
+
+    if(numero <= 5){
+        printf("Direita!\n");
+        torre(numero +1);
+    }
+}
+
+void bispo(int numero){         //RECURSIVIDADE E LOOP ANINHADO: BISPO
+    int cima, valorcima, direita, valordireita;
+
+    for (int cima = 1, valorcima = 10; cima < valorcima; cima++, valorcima--) {
+        printf("Cima!\n");
+
+        for (int direita = 1, valordireita = 10; direita %2; direita++, valordireita--){
+        printf("Direita!\n");
+        }  
+    }
+}
+
+void rainha(int numero){        //RECURSIVIDADE: RAINHA
+
+    if(numero <= 8){
+        printf("Esquerda!\n");
+        rainha(numero + 1);
+    }
+}
+
+void cavalo(int numero){        //RECURSIVIDADE E LOOP COMPLEXO: CAVALO
+
+    for (int cima = 0, direita = 3; cima < direita; cima++, direita--) {
+        printf("Cima!\n");  
+    }
+    printf("Direita!\n");
+}
+
+int main(){
+
+    int numtorre = 1;
+    int numbispo = 1;      //DECLARA OS VALORES UTILIZADOS PELAS PEÇAS PARA CADA FUNÇÃO PARA RECURSIVIDADE
+    int numrainha = 1;
+    int numcavalo = 1;
+    
+    printf("Torre: \n");
+    torre(numtorre);        //CHAMA A FUNÇÃO RECURSIVA TORRE
+
+    printf("\n");
+
+    printf("Bispo: \n");
+    bispo(numbispo);        //CHAMA A FUNÇÃO RECURSIVA BISPO
+
+    printf("\n");
+
+    printf("Rainha: \n");
+    rainha(numrainha);      //CHAMA A FUNÇÃO RECURSIVA RAINHA
+    
+    printf("\n");
+    printf("Cavalo: \n");
+    cavalo(numcavalo);      //CHAMA A FUNÇÃO RECURSIVA CAVALO
+
+    printf("\n");
+    return 0;       //Fim do Código.
+}
+## 🔄 Funções:
 ♖ void torre(int numero)
 Usa recursão para simular o movimento horizontal da torre.
 
@@ -38,7 +101,7 @@ Usa um loop complexo com variáveis múltiplas.
 
 Simula o movimento em "L" com prints de "Cima!" e "Direita!".
 
-🧠 Conceitos Utilizados
+## 🧠 Conceitos Utilizados
 📚 Funções recursivas
 
 🔁 Loops aninhados (for)
@@ -47,23 +110,7 @@ Simula o movimento em "L" com prints de "Cima!" e "Direita!".
 
 🧩 Lógica combinada de repetição e condição
 
-🖥️ Como Executar
-Compile o programa:
-
-bash
-Copiar
-Editar
-gcc -o matecheck matecheck.c
-Execute:
-
-bash
-Copiar
-Editar
-./matecheck
-📤 Exemplo de Saída
-txt
-Copiar
-Editar
+## 📤 Exemplo de Saída
 Torre: 
 Direita!
 Direita!
@@ -98,4 +145,3 @@ Cima!
 Cima!
 Cima!
 Direita!
-🛠️ Melhorias Futuras
